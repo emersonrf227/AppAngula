@@ -14,14 +14,14 @@ export class UserService {
     getById(id: string) {
         return this.db.collection(
             'users', ref => ref.where('id', '==', id)
-        );
+        ).snapshotChanges();
 
 
     } 
     
     
     
-        create(data){
+    create(data){
         console.log(data);
 
         console.log(this.db);
@@ -31,4 +31,27 @@ export class UserService {
             ...data,
         });
     }
+
+
+
+    update(chave, data){
+        console.log(data);
+
+        console.log(this.db);
+
+        console.log('minha chave esta chegando aqui' + chave);
+
+        return this.db.collection('users').doc(chave).update({
+            ...data,
+        });
+    }
+
+    listUsers(){
+        return this.db.collection('users').snapshotChanges();
+    }
+
+
+
+
+
 }

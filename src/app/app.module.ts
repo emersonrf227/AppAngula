@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {HeaderComponent} from './components/Header/Header.component';
 import {LoadingComponent} from './components/Loading/Loading.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -25,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserListPages,
     UsersPages,
     UsersPages2,
-    LoadingComponent
+    LoadingComponent,
+  
     
   ],
   imports: [
@@ -33,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

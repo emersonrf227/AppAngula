@@ -1,6 +1,67 @@
 <div>
 
 <loading-component [show]="loading"></loading-component>
-    <button (click)="createUsers()">Criar</button>
+
+<form  [formGroup]="userForm" (ngSubmit)="onSubmit()"> 
+
+Nome:
+<br>
+<input 
+type="text"
+name="name"
+formControlName="name"
+/>
+<span *ngIf="userForm.controls.name.invalid && userForm.controls.name.touched"> 
+<font color="#ff0000" style="font-size:10px"> *Campo nome obrigatorio</font>
+</span>
+
+<br><br>
+
+Email:
+<br>
+<input 
+type="text"
+name="email"
+formControlName="email"
+/>
+<span *ngIf="userForm.controls.email.invalid && userForm.controls.email.touched"> 
+    <font color="#ff0000" style="font-size:10px"> *Campo E-mail obrigatorio</font>
+</span>
+    
+
+
+<br><br>
+Idade:
+<br>
+<input 
+type="text"
+name="age"
+formControlName="age"
+/>
+<span *ngIf="userForm.controls.age.invalid && userForm.controls.age.touched"> 
+    <font color="#ff0000" style="font-size:10px"> *Campo Idade obrigatorio</font>
+</span>
+    
+
+<br><br>
+Telefone:
+<br>
+<input 
+type="text"
+name="telefone"
+formControlName="telefone"
+/>
+
+<span *ngIf="userForm.controls.telefone.invalid && userForm.controls.telefone.touched"> 
+    <font color="#ff0000" style="font-size:10px"> *Campo Telefone obrigatorio</font>
+</span>
+
+
+<button type="submit" [disabled]="!userForm.valid">Criar</button>
+
+</form>
+
+
+
 
 </div>
